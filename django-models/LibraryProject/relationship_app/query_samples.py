@@ -22,7 +22,7 @@ def books_in_library(library_name):
     libraries = Library.objects.filter(name=library_name)
     if libraries.exists():
         for library in libraries:
-            books = library.books.all()  # ManyToMany, use all()
+            books = library.books.all()  # ManyToMany, still use .all()
             print(f"Books in {library.name}: {[book.title for book in books]}")
     else:
         print(f"No library found with name '{library_name}'")
