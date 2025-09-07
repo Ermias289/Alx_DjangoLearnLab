@@ -5,6 +5,7 @@ from .models import Book
 from django.http import HttpResponse
 from .models import Book
 from django.views.generic.detail import DetailView
+from django.contrib.auth import login
 
 def list_books(request):
     books = Book.objects.all()
