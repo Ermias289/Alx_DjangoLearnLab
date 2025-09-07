@@ -8,14 +8,15 @@ django.setup()
 from relationship_app.models import Author, Book, Library, Librarian
 
 # 1️⃣ Query all books by a specific author using filter
+# 1️⃣ Query all books by a specific author using Author.objects.get
 def books_by_author(author_name):
-    authors = Author.objects.filter(name=author_name)
-    if authors.exists():
-        for author in authors:
-            books = Book.objects.filter(author=author)
-            print(f"Books by {author.name}: {[book.title for book in books]}")
-    else:
+    try:
+        author = Author.objects.get(name=author_name)
+        books = Book.objects.filter(author=author)
+        print(f"Books by {author.name}: {[book.title for book in books]}")
+    except Author.DoesNotExist:
         print(f"No author found with name '{author_name}'")
+
 
 # 2️⃣ List all books in a library using Library.objects.get
 def books_in_library(library_name):
@@ -36,6 +37,7 @@ def librarian_for_library(library_name):
         print(f"No library found with name '{library_name}'")
     except Librarian.DoesNotExist:
         print(f"No librarian assigned to {library.name}")
+
 
 # Example usage
 if __name__ == "__main__":
