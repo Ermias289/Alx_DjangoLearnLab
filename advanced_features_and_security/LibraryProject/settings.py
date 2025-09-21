@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bookshelf',
-    'relationship_app'
 ]
 
 MIDDLEWARE = [
@@ -127,9 +126,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # advanced_features_and_security/settings.py
 
-# Use the custom user model
-AUTH_USER_MODEL = "accounts.CustomUser"
+# # Use the custom user model
+# AUTH_USER_MODEL = "accounts.CustomUser"
 
-# Make sure you configure media for profile_photo
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# # Make sure you configure media for profile_photo
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
